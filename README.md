@@ -22,6 +22,7 @@ Before start development and running the test you need to install packages that 
 
 ## Test Structure
 - Use `describe` function to create Test Suite (group of test cases)
+- Use `beforeEach` to load data before the test is executed
 - Use `It` function to create a test case
 - Example:
 ```
@@ -53,26 +54,6 @@ describe("Make an appointment", function() {
 
     });
 
-    it("It should success to Make Appointment", function() {
-
-        const appointment = new Appointment();
-        appointment.selectFacility("Seoul CURA Healthcare Center");
-        appointment.applyHospitalReadmission();
-        appointment.selectHeatlhcareProgram();
-        appointment.inputVisitDate("31/08/2021");
-        appointment.inputComment("I will be available at 31/08/2021");
-        appointment.clickBookAppointmentButton();
-
-    });
-
-    it("It should navigate to Appointment Confirmation page", function() {
-
-        cy.get("h2").contains("Appointment Confirmation");
-        cy.get("#comment").contains("I will be available at 31/08/2021");
-
-
-    });
-
 });
 ```
 
@@ -81,15 +62,21 @@ To run the test, you need to follow these steps
 - First, open terminal in your Code Editor by clicking ctrl + `
 - Then type `npx cypress run --headed --reporter mochawesome --spec 'cypress/integration/project-test/test.spec.js'` and press ENTER on your keyboard
   
-  
-  
-- Wait until Cypress Test Runner open up
-- Then, click `test.spec.js` to run the test
-  
-  ![Screenshot_Test_Runner](https://user-images.githubusercontent.com/74105380/126940145-51af5625-8ebf-472c-ba4f-bd202393fbf9.jpg)
+  ![Screenshot_1](https://user-images.githubusercontent.com/74105380/131126314-ae7647e6-3820-42ea-b177-3abb3d8e66bc.jpg)
 
 - And the test will run
 
-  ![image](https://user-images.githubusercontent.com/74105380/126941724-5d3f2bb7-27d6-4534-9a7b-993887f00e83.png)
+  ![Screenshot_2](https://user-images.githubusercontent.com/74105380/131127908-c548a252-9773-4477-929b-2ac481dfac42.jpg)
+  
+## Test Report by Mochawesome
+After run the test, you can also see the result of the test by copying the html file and paste it to search bar of your browser
+  
+  ![Screenshot_4](https://user-images.githubusercontent.com/74105380/131128273-85102cd4-0a3a-4ed4-999b-4c75bc188450.jpg)
+
+
+### Test Report Sample
+
+![Screenshot_5](https://user-images.githubusercontent.com/74105380/131128399-04e0eb22-c6a0-47d6-a888-1f0d6100417b.jpg)
+The result will be like this.
   
 # All is Done!
